@@ -1,50 +1,23 @@
-* {
+@import 'header.css';
+@media screen and (min-width: 1024px) {
+
+}
+
+body {
     padding: 0;
     margin: 0;
-}
+ }
 
-.container {
+ .container {
     font-family: 'Outfit', 'Arial';
     width: 100vw;
-    height: 100vh;  
-    font-size: 24px;
-    color: #A46F5F;
-    background: #FFF7ED; 
-}
+   height: 100vh;  
+   font-size: 18px;
+  color: #A46F5F;
+  background: #FFF7ED; 
+ }
 
-.header {
-    min-height: 106px;
-    background: #F4E5E0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    justify-content: space-between;
-    padding: 9px 51px;
-
-    display: flex;
-    align-items: baseline, center;
-}
-
-.header-section, .logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 3;
-}
-
-.logo img {
-    width: 65px;
-    height: 87px;
-}
-
-.search-bar {
-    background: #EFEFEF;
-    align-self: flex-start;
-}
-
-.logo span {
-    align-self: flex-end;
-}
-
-.box {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
-}
-
+ a {
+  color: inherit;
+  text-decoration: none;
+ }
