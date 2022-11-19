@@ -1,7 +1,4 @@
-@import 'header.css';
-@media screen and (min-width: 1024px) {
-
-}
+@import 'header.css' only screen and (min-width: 1024px);
 
 body {
     padding: 0;
