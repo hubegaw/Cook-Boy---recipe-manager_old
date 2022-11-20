@@ -7,12 +7,12 @@
     justify-content: space-between;
 }
 
-ul {
+.footer ul {
     list-style-type: none;
     padding: 0;
 }
 
-li {
+.footer li {
     margin-right: 3vw;
 }
 

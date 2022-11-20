@@ -2,4 +2,56 @@
     order: 1;
     width: 100%;
     flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-sign {
+    font-size: 24px;
+    margin: 2vh;
+    min-height: 5vh;
+    width: 100%;
+    text-align: center;
+}
+
+.suggestions {
+    min-height: 40vh;
+    width: 100%;
+    text-align: center;
+}
+
+.features-container {
+    min-height: 30vh;
+    width: 100%;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.features-container>span {
+    order: 0;
+}
+
+.features {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    order: 1;
+    width: 100%;
+    padding: 1vh;
+    list-style-type: none;
+}
+
+.features img {
+    width: 48px;
+    height: 48px;
+}
+
+.features li {
+    height: 100%;
+    min-width: 10vh; 
 }
