@@ -1,18 +1,11 @@
 @import 'login-popup.css';
 
-.flexbox {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
 .header {
-    min-height: 6vh;
+    order: 0;
+    min-height: 60px;
     background: #F4E5E0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 9px 51px;
-
-    justify-content: center;
 }
 
 .logo-container {
@@ -86,4 +79,5 @@ button {
     border-radius: 15px;
     width: 100px;
     height: 40px;
+    font-size: inherit;
 }

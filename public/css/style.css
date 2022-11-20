@@ -1,4 +1,6 @@
 @import 'header.css' only screen and (min-width: 1024px);
+@import 'footer.css' only screen and (min-width: 1024px);
+@import 'main-content.css' only screen and (min-width: 1024px);
 
 body {
     padding: 0;
@@ -8,13 +10,22 @@ body {
  .container {
     font-family: 'Outfit', 'Arial';
     width: 100vw;
-   height: 100vh;  
-   font-size: 18px;
-  color: #A46F5F;
-  background: #FFF7ED; 
+    min-height: 100vh;  
+    font-size: 18px;
+    color: #A46F5F;
+    background: #FFF7ED; 
+
+    display: flex;
+    flex-direction: column;
  }
 
  a {
   color: inherit;
   text-decoration: none;
  }
+
+ .flexbox {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
