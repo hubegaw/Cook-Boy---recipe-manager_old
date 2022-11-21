@@ -6,27 +6,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 20px;
+    text-align: center;
 }
 
 .welcome-sign {
     font-size: 24px;
-    margin: 2vh;
+    margin: 2vh 0;
     min-height: 5vh;
     width: 100%;
-    text-align: center;
 }
 
 .suggestions {
     min-height: 40vh;
     width: 100%;
-    text-align: center;
 }
 
 .features-container {
-    min-height: 30vh;
+    min-height: 20vh;
     width: 100%;
-    text-align: center;
-
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,16 +41,37 @@
     justify-content: space-around;
     order: 1;
     width: 100%;
-    padding: 1vh;
+    padding: 1vh 0;
     list-style-type: none;
 }
 
 .features img {
     width: 48px;
     height: 48px;
+    padding: 5px;
 }
 
 .features li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100%;
-    min-width: 10vh; 
+    min-width: 10vh;
+    padding: 10px;
+    white-space: pre-line;
+    font-size: 16px;
+}
+
+.feature-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.feature-text {
+    padding: 0 5px 5px 5px;
+}
+
+.features span {
+    padding: 5px;
 }
