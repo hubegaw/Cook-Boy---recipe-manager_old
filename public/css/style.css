@@ -1,6 +1,7 @@
 @import 'header.css' only screen and (min-width: 1024px);
 @import 'footer.css' only screen and (min-width: 1024px);
 @import 'main-content.css' only screen and (min-width: 1024px);
+@import 'popups.css' only screen and (min-width: 1024px);
 
 body {
     padding: 0;
