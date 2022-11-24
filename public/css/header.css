@@ -10,7 +10,6 @@
 
 .logo-container {
     font-size: 24px;
-
 }
 
 .navigation {
@@ -25,20 +24,12 @@
 }
 
 .search-bar {
-    border: none;
     background: #EFEFEF;
-    width: 230px;
-    height: 30px;
     margin-right: 2vw;
-}
-
-input {
     padding-left: 44px;
-    font-family: inherit;
-    color: #3b3b3b;
 }
 
-input::placeholder {
+header input::placeholder {
     background-image: url('../img/header/search.png');
     background-repeat: no-repeat;
     background-size: 16px;
