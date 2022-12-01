@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head lang="en">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/home/home.css">
     <title>Home - Cook Boy</title>
     <style>@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap');</style>
 </head>
@@ -8,12 +8,12 @@
     <div class="container">
         <div class="header flexbox">
             <a class="logo-container flexbox" href="#">
-                <img src="../img/header/logo.png" alt="Cook Boy logo">
+                <img src="public/img/header/logo.png" alt="Cook Boy logo">
                 <div class="app-name">Cook Boy</div>
             </a>
             <nav class="navigation flexbox">
                 <input class="search-bar box" type="text" placeholder="Find a recipe">
-                <a class="categories-button" href="#">Categories</a>
+                <a class="categories-button" href="categories.html">Categories</a>
                 <div class="login-buttons">
                     <button class="log-in">Log in</button>
                     <button class="sign-in">Sign in</button>
@@ -34,7 +34,7 @@
                 <ul class="features">
                     <li>
                         <div class="feature-header">
-                            <img src="../img/features/categories.png" alt="categories">
+                            <img src="public/img/features/categories.png" alt="categories">
                             <span>Filters and tags</span>
                         </div>
                         <div class="feature-text">
@@ -44,7 +44,7 @@
                     </li>
                     <li>
                         <div class="feature-header">
-                            <img src="../img/features/cloud.png" alt="cloud">
+                            <img src="public/img/features/cloud.png" alt="cloud">
                             <span>Import from cloud</span>
                         </div>
                         <div class="feature-text">
@@ -54,7 +54,7 @@
                     </li>
                     <li>
                         <div class="feature-header">
-                            <img src="../img/features/measuring-cup.png" alt="measuring-cup">
+                            <img src="public/img/features/measuring-cup.png" alt="measuring-cup">
                             <span>Conversion</span>
                         </div>
                         <div class="feature-text">
@@ -104,6 +104,35 @@
             </div>
             <button>Continue</button>
         </div>
-        <div class="sign-in-popup"></div>
+        <div class="sign-in-popup">
+            <h2>Sign in</h2>
+            <div class="inputs">
+                <div class="email-input">
+                    <div class="text">Email Address</div>
+                    <input class="email-input box" type="text" placeholder="myrecipes@email.com">
+                </div>
+                <div class="password-input">
+                    <div class="text">Password</div>
+                    <input class="password-input box" type="text" placeholder="**********">
+                </div>
+            </div>
+            <span>or sign in with</span>
+            <div class="log-in-options">
+                <button class="google">Google</button>
+                <button class="twitter">Twitter</button>
+                <button class="facebook">Facebook</button>
+            </div>
+        </div>
+        <div class="welcome-popup">
+            <h1>We are happy to see You here!</h1>
+            <h2>Enter Your name, please</h2>
+            <div class="inputs">
+                <div class="name-input">
+                    <div class="text">Your name</div>
+                    <input class="box" type="text" placeholder="Adam">
+                </div>
+            </div>
+            <button class="start-button">Start!</button>
+        </div>
     </div>
 </body>

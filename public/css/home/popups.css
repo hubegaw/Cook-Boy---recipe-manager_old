@@ -1,11 +1,9 @@
 .popups {
     display: flex;
     justify-content: center;
-    display: none;
 }
 
-.log-in-popup {
-    display: none;
+.log-in-popup, .sign-in-popup, .welcome-popup  {
     position: absolute;
     top: 150px;
     z-index: 2;
@@ -20,19 +18,32 @@
     justify-content: flex-start;
 }
 
-.log-in-popup > h2 {
+.welcome-popup {
+    display: none;
+    height: 400px;
+}
+
+.log-in-popup {
+    display: none;
+}
+
+.sign-in-popup {
+    display: none;
+}
+
+.popups h2, h1 {
     text-align: center;
     font-style: normal;
     font-weight: 400;
 }
 
-.log-in-popup > span {
+.popups  span {
     text-align: center;
     font-size: 16px;
     line-height: 50px;
 }
 
-.log-in-popup button {
+.popups button {
     color: #FFF7ED;
     font-size: 16px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -52,15 +63,7 @@
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.email-input {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.password-input {
+.email-input, .password-input, .name-input {
     width: 100%;
     height: 50%;
     display: flex;
@@ -89,7 +92,7 @@
     justify-content: space-evenly;
 }
 
-.log-in-popup > button {
+.popups > button {
     background: #A46F5F;
     align-self: center;
     width: 140px;
@@ -109,12 +112,6 @@
     background: #008CDB;
 }
 
-.sign-in-popup {
-    display: none;
-    position: fixed;
-    z-index: 2;
-}
-
 .blur {
     display: none;
     position: absolute;
@@ -126,4 +123,23 @@
     min-height: 579px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(3px);
+}
+
+.welcome-popup h1 {
+    margin-top: 40px;
+    font-size: 26px;
+}
+
+.welcome-popup h2 {
+    font-size: 22px;
+    margin-bottom: 35px;
+}
+
+.welcome-popup .inputs {
+    height: 30%;
+}
+
+.start-button {
+    background: #A46F5F;
+    align-self: center;
 }

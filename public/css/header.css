@@ -1,4 +1,4 @@
-@import 'popups.css';
+@import 'home/popups.css' only screen and (min-width: 1024px);
 
 .header {
     order: 0;
@@ -29,7 +29,7 @@
     padding-left: 44px;
 }
 
-header input::placeholder {
+.navigation input::placeholder {
     background-image: url('../img/header/search.png');
     background-repeat: no-repeat;
     background-size: 16px;
