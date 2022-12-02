@@ -1,0 +1,78 @@
+@import './style.css' only screen and (min-width: 1024px);
+
+.panel {
+    width: 90%;
+    height: 50px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.recipes-count {
+    padding: 0 15px;
+}
+
+.create-recipe {
+    margin-left: 150px;
+    font-weight: 500;
+}
+
+.filters { 
+    margin-left: auto;
+}
+
+.recipes-container {
+    width: 90%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.recipes-container ul {
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recipes-container li {
+    width: 100%;
+    height: 60px;
+    background: #9BB0A5;
+    color: #3b3b3b;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 0 15px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    width: 50%;
+    text-align: left;
+}
+
+.info {
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.rating, .cooking-time, .portions {
+    width: calc(100%/3);
+    text-align: left;
+}
+
+.delete-button {
+    width: 44px;
+    height: 44px;
+}
+
+.delete-button img {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    width: 44px;
+    height: 44px;
+}
