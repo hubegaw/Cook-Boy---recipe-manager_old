@@ -1,5 +1,5 @@
-@import './header.css' only screen and (min-width: 1024px);
-@import './footer.css' only screen and (min-width: 1024px);
+@import 'public/css/header.css' only screen and (min-width: 1024px);
+@import 'public/css/footer.css' only screen and (min-width: 1024px);
 
 body {
     padding: 0;
@@ -46,9 +46,4 @@ input {
    display: flex;
    flex-direction: row;
    align-items: center;
-}
-
-ul {
-   list-style-type: none;
-   padding: 0;
 }
