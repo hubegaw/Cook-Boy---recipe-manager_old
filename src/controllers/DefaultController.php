@@ -13,4 +13,9 @@ class DefaultController extends AppController {
     {
         $this->render('my_recipes');
     }
+
+    public function add_recipe()
+    {
+        $this->render('add_recipe');
+    }
 }

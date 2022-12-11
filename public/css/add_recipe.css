@@ -1,0 +1,9 @@
+@import './style.css' only screen and (min-width: 1024px);
+
+.ingrediends {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 100%;
+}

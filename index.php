@@ -7,5 +7,6 @@ $path = parse_url( $path, PHP_URL_PATH);
 
 Router::get('', 'DefaultController');
 Router::get('my_recipes', 'DefaultController');
+Router::get('add_recipe', 'DefaultController');
 
 Router::run($path);

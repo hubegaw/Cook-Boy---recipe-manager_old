@@ -102,7 +102,7 @@
                 <button class="twitter">Twitter</button>
                 <button class="facebook">Facebook</button>
             </div>
-            <button>Continue</button>
+            <button type="submit">Continue</button>
         </div>
         <div class="sign-in-popup">
             <h2>Sign in</h2>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="password-input">
                     <div class="text">Password</div>
-                    <input class="password-input box" type="text" placeholder="**********">
+                    <input class="password-input box" type="password" placeholder="**********">
                 </div>
             </div>
             <span>or sign in with</span>
@@ -123,7 +123,7 @@
                 <button class="facebook">Facebook</button>
             </div>
         </div>
-        <div class="welcome-popup">
+        <form class="welcome-popup" action="login" method="POST">
             <h1>We are happy to see You here!</h1>
             <h2>Enter Your name, please</h2>
             <div class="inputs">
@@ -132,7 +132,7 @@
                     <input class="box" type="text" placeholder="Adam">
                 </div>
             </div>
-            <button class="start-button">Start!</button>
-        </div>
+            <button class="start-button" type="submit">Start!</button>
+        </form>
     </div>
 </body>
