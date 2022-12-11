@@ -10,7 +10,7 @@
     width: 500px;
     height: 500px;
     background-color: #F4E5E0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), inset 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
 
     display: flex;
@@ -24,7 +24,7 @@
 }
 
 .log-in-popup {
-    display: none;
+    display: block;
 }
 
 .sign-in-popup {
@@ -37,7 +37,7 @@
     font-weight: 400;
 }
 
-.popups  span {
+.popups span {
     text-align: center;
     font-size: 16px;
     line-height: 50px;
@@ -112,7 +112,7 @@
     background: #008CDB;
 }
 
-.blur {
+#blur {
     display: none;
     position: absolute;
     top: 83px;

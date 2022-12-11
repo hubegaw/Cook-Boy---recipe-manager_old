@@ -1,5 +1,6 @@
 @import './header.css' only screen and (min-width: 1024px);
 @import './footer.css' only screen and (min-width: 1024px);
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap');
 
 body {
     padding: 0;

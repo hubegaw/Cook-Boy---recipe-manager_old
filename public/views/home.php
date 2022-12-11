@@ -16,7 +16,7 @@
                 <a class="categories-button" href="categories.html">Categories</a>
                 <div class="login-buttons">
                     <button class="log-in">Log in</button>
-                    <button class="sign-in">Sign in</button>
+                    <button class="sign-in">Sign up</button>
                 </div>
             </nav>
         </div>
@@ -84,16 +84,16 @@
     </div>
     <div class="blur"></div>
     <div class="popups">
-        <div class="log-in-popup">
+        <form class="log-in-popup" action="login" method="POST">
             <h2>Log in</h2>
             <div class="inputs">
                 <div class="email-input">
-                    <div class="text">Email Address</div>
-                    <input class="email-input box" type="text" placeholder="myrecipes@email.com">
+                    <label for="email" class="text">Email Address</label>
+                    <input class="email box" type="text" placeholder="myrecipes@email.com">
                 </div>
                 <div class="password-input">
-                    <div class="text">Password</div>
-                    <input class="password-input box" type="text" placeholder="**********">
+                    <label for="password" class="text">Password</label>
+                    <input class="password box" type="password" placeholder="**********">
                 </div>
             </div>
             <span>or log in with</span>
@@ -102,37 +102,38 @@
                 <button class="twitter">Twitter</button>
                 <button class="facebook">Facebook</button>
             </div>
-            <button type="submit">Continue</button>
-        </div>
-        <div class="sign-in-popup">
-            <h2>Sign in</h2>
-            <div class="inputs">
-                <div class="email-input">
-                    <div class="text">Email Address</div>
-                    <input class="email-input box" type="text" placeholder="myrecipes@email.com">
+            <button>Continue</button>
+        </form>
+        <form class="signup" action="" method="POST">
+            <div class="sign-in-popup">
+                <h2>Sign up</h2>
+                <div class="inputs">
+                    <div class="email-input">
+                        <div class="text">Email Address</div>
+                        <input class="email-input box" type="text" placeholder="myrecipes@email.com">
+                    </div>
+                    <div class="password-input">
+                        <div class="text">Password</div>
+                        <input class="password-input box" type="password" placeholder="**********">
+                    </div>
                 </div>
-                <div class="password-input">
-                    <div class="text">Password</div>
-                    <input class="password-input box" type="password" placeholder="**********">
-                </div>
-            </div>
-            <span>or sign in with</span>
-            <div class="log-in-options">
-                <button class="google">Google</button>
-                <button class="twitter">Twitter</button>
-                <button class="facebook">Facebook</button>
-            </div>
-        </div>
-        <form class="welcome-popup" action="login" method="POST">
-            <h1>We are happy to see You here!</h1>
-            <h2>Enter Your name, please</h2>
-            <div class="inputs">
-                <div class="name-input">
-                    <div class="text">Your name</div>
-                    <input class="box" type="text" placeholder="Adam">
+                <span>or sign up with</span>
+                <div class="log-in-options">
+                    <button class="google">Google</button>
+                    <button class="twitter">Twitter</button>
+                    <button class="facebook">Facebook</button>
                 </div>
             </div>
-            <button class="start-button" type="submit">Start!</button>
+            <div class="welcome-popup">
+                <h1>We are happy to see You here!</h1>
+                <h2>Enter Your name, please</h2>
+                <div class="inputs">
+                    <div class="name-input">
+                        <input class="box" type="text" placeholder="Adam">
+                    </div>
+                </div>
+                <button class="start-button" type="submit">Start!</button>
+            </div>
         </form>
     </div>
 </body>
