@@ -24,7 +24,7 @@
             <div class="panel flexbox">
                 <div class="recipes-count">You have</div>
                 <div class="create-recipe">
-                    <a  href="add_recipe.html">Create new recipe</a>
+                    <a href="views/add_recipe.html">Create new recipe</a>
                 </div>
                 <div class="filters">
                     <button >Filters</button>
