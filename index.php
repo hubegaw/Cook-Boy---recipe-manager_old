@@ -9,6 +9,7 @@ Router::get('', 'DefaultController');
 Router::get('home', 'DefaultController');
 Router::get('my_recipes', 'DefaultController');
 Router::get('add_recipe', 'DefaultController');
+Router::get('categories', 'DefaultController');
 Router::post('login', 'SecurityController');
 
 Router::run($path);

@@ -6,20 +6,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="header flexbox">
-            <a class="logo-container flexbox" href="#">
-                <img src="public/img/header/logo.png" alt="Cook Boy logo">
-                <div class="app-name">Cook Boy</div>
-            </a>
-            <nav class="navigation flexbox">
-                <label for="search-bar">
-                    <input class="search-bar" name="search-bar" type="text" placeholder="Find a recipe">
-                </label>
-                <a href="./categories.php">Categories</a>
-                <a href="./my_recipes.php">My recipes</a>
-                <a href="./add_recipe.php">Add recipe</a>
-            </nav>
-        </div>
+        <?php include('header.php')?>
         <div class="main-content">
             <div class="welcome-sign">
                 <span>Welcome to Cook Boy - Your recipe manager!</span>
@@ -66,20 +53,6 @@
                 <button class="more-button">more</button>
             </div>
         </div>
-        <div class="footer flexbox">
-            <ul class="flexbox">
-                <li>
-                    <a href="#">About Us</a>
-                </li>
-                <li>
-                    <span>Contact:</span>
-                    <span class="email">cookboyrecipes@contact.com</span>
-                </li>
-                <li>
-                    <a href="#">Help</a>
-                </li>
-            </ul>
-            <span class="legal">@2022 All rights reserved</span>
-        </div>
+        <?php include('footer.php')?>
     </div>
 </body>
