@@ -10,14 +10,17 @@
         <div class="main-content">
             <form class="recipe-container">
                 <div class="tags">
-                    <span>Tags</span>
-                    <input type="text" id="tag">
+                    <span>Tags:</span>
+                    <input type="text" id="tag" placeholder="|">
                 </div>
                 <div class="recipe-info">
                     <label for="time">time:</label>
                     <input type="time" id="time">
                     <label for="portions">portions:</label>
                     <input type="number" id="portions">
+                </div>
+                <div class="title">
+                    <input type="text" placeholder="Title">
                 </div>
                 <div class="ingredients">
                     <span>Ingredients</span>
@@ -33,7 +36,6 @@
                                 <option>kg</option>
                             </select>
                         </div>
-
                     <button type="submit">add ingredient</button>
                 </div>
                 <div class="description">

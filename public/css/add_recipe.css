@@ -1,9 +1,48 @@
 @import './style.css' only screen and (min-width: 1024px);
 
-.ingrediends {
-    align-self: center;
-    display: flex;
-    flex-direction: row;
+.recipe-container {
     width: 80%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.recipe-container input {
+    background: none;
+    height: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.recipe-container input:focus {
+    outline: none;
+}
+
+.tags span{
+    color: #938C83;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.tags input {
+    width: 100px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.recipe-info {
+    font-size: 16px;
+}
+
+.recipe-info input {
+    width: 60px;
+    margin-right: 20px;
+}
+
+.title input {
+    margin: 10px 0;
+    width: 25vw;
+    font-size: 20px;
 }

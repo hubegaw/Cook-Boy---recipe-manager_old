@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head lang="en">
-    <link rel="stylesheet" type="text/css" href="public/css/home/home.css">
+    <link rel="stylesheet" type="text/css" href="public/css/home.css">
     <title>Home - Cook Boy</title>
     <style>@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap');</style>
 </head>
