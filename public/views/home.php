@@ -12,12 +12,12 @@
                 <div class="app-name">Cook Boy</div>
             </a>
             <nav class="navigation flexbox">
-                <input class="search-bar box" type="text" placeholder="Find a recipe">
-                <a class="categories-button" href="categories.html">Categories</a>
-                <div class="login-buttons">
-                    <button class="log-in">Log in</button>
-                    <button class="sign-in">Sign up</button>
-                </div>
+                <label for="search-bar">
+                    <input class="search-bar" name="search-bar" type="text" placeholder="Find a recipe">
+                </label>
+                <a href="./categories.php">Categories</a>
+                <a href="./my_recipes.php">My recipes</a>
+                <a href="./add_recipe.php">Add recipe</a>
             </nav>
         </div>
         <div class="main-content">
@@ -58,7 +58,7 @@
                             <span>Conversion</span>
                         </div>
                         <div class="feature-text">
-                            Convert ingridients between US, 
+                            Convert ingredients between US,
                             Imperial and metric measures
                         </div>
                     </li>
@@ -81,59 +81,5 @@
             </ul>
             <span class="legal">@2022 All rights reserved</span>
         </div>
-    </div>
-    <div class="blur"></div>
-    <div class="popups">
-        <form class="log-in-popup" action="login" method="POST">
-            <h2>Log in</h2>
-            <div class="inputs">
-                <div class="email-input">
-                    <label for="email" class="text">Email Address</label>
-                    <input class="email box" type="text" placeholder="myrecipes@email.com">
-                </div>
-                <div class="password-input">
-                    <label for="password" class="text">Password</label>
-                    <input class="password box" type="password" placeholder="**********">
-                </div>
-            </div>
-            <span>or log in with</span>
-            <div class="log-in-options">
-                <button class="google">Google</button>
-                <button class="twitter">Twitter</button>
-                <button class="facebook">Facebook</button>
-            </div>
-            <button>Continue</button>
-        </form>
-        <form class="signup" action="" method="POST">
-            <div class="sign-in-popup">
-                <h2>Sign up</h2>
-                <div class="inputs">
-                    <div class="email-input">
-                        <div class="text">Email Address</div>
-                        <input class="email-input box" type="text" placeholder="myrecipes@email.com">
-                    </div>
-                    <div class="password-input">
-                        <div class="text">Password</div>
-                        <input class="password-input box" type="password" placeholder="**********">
-                    </div>
-                </div>
-                <span>or sign up with</span>
-                <div class="log-in-options">
-                    <button class="google">Google</button>
-                    <button class="twitter">Twitter</button>
-                    <button class="facebook">Facebook</button>
-                </div>
-            </div>
-            <div class="welcome-popup">
-                <h1>We are happy to see You here!</h1>
-                <h2>Enter Your name, please</h2>
-                <div class="inputs">
-                    <div class="name-input">
-                        <input class="box" type="text" placeholder="Adam">
-                    </div>
-                </div>
-                <button class="start-button" type="submit">Start!</button>
-            </div>
-        </form>
     </div>
 </body>

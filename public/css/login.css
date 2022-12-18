@@ -1,0 +1,160 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Outfit', 'Arial', 'serif';
+    font-size: 18px;
+    color: #A46F5F;
+}
+
+.container {
+    width: 100vw;
+    min-height: 100vh;
+    background: #FFF7ED;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    order: 1;
+    width: 100%;
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    position: absolute;
+    left: 51px;
+    top: 10px;
+}
+
+.logo img {
+    width: 46px;
+    height: 65px;
+}
+
+.app-name {
+    align-self: center;
+    margin-left: 15px;
+    font-size: 40px;
+}
+
+.log-in, .sign-up {
+    width: 400px;
+    height: 470px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 70px;
+}
+
+.sign-up {
+    display: none;
+    width: 410px;
+    height: 545px;
+}
+
+.log-in > span, .sign-up > span {
+    font-size: 24px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.email, .password, .name {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+    width: 310px;
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+.email-input, .password-input, .name-input {
+    font-family: inherit;
+    color: #3b3b3b;
+    width: 300px;
+    height: 40px;
+    background: #FFF7ED;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    border-radius: 15px;
+    margin-top: 3px;
+    padding-left: 10px;
+}
+
+.other-login-options {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 310px;
+    margin-bottom: 38px;
+}
+
+.other-login-options > span {
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.button {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    text-align: center;
+    border: none;
+    width: 90px;
+    height: 40px;
+    color: #FFF7ED;
+    font-family: inherit;
+}
+
+.google {
+    background: #CC635D;
+}
+
+.twitter {
+    background: #52B6FF;
+}
+
+.facebook {
+    background: #008CDB;
+}
+
+.log-in-button, .sign-up-button {
+    background: #A46F5F;
+    width: 310px;
+    height: 40px;
+    font-size: 16px;
+    margin-bottom: 19px;
+}
+
+.to-sign-up, .to-log-in {
+    width: 310px;
+    font-size: 14px;
+    color: #646464;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.to-log-in > button, .to-sign-up > button {
+    border: none;
+    background: none;
+    color: #484848;
+    font-weight: bold;
+}

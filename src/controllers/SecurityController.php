@@ -5,15 +5,16 @@ require_once __DIR__ .'/../models/User.php';
 
 class SecurityController extends AppController {
 
-    public function login() {
+    public function login()
+    {   
         $user = new User('hubert.gawczynski@gmail.com', 'admin', 'Hubert');
 
         if (!$this->isPost()) {
-            return $this->render('login');
+            return $this->render('index');
         }
 
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $email = $_POST['email-input'];
+        $password = $_POST['password-input'];
 
         if ($user->getEmail() !== $email) {
             return $this->render('login', ['messages' => ['User with this email not exist!']]);
@@ -24,6 +25,6 @@ class SecurityController extends AppController {
         }
 
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/projects");
+        header("Location: {$url}/home");
     }
 }

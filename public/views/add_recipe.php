@@ -21,35 +21,38 @@
             </nav>
         </div>
         <div class="main-content">
-            <div class="ingrediends">
-                <span>Ingrediends</span>
-                <form>
-                    <div class="tags">
-                        <span>Tags</span>
-                        <input type="text" id="tag">
-                    </div>
-                    <div class="recipe-info">
-                        <label for="time">time:</label>
-                        <input type="text" id="time">
-                        <label for="portions">portions:</label>
-                        <input type="text" id="portions">
-                    </div>
-                    <div class="new-ingrediend">
-                        <input type="text" id="ingrediend">
-                        <input type="text" id="measure">
-                        <select>
-                            <option>ml</option>
-                            <option>l</option>
-                            <option>cups</option>
-                            <option>g</option>
-                            <option>dg</option>
-                            <option>kg</option>
-                        </select>
-                    </div>
-                    <input type="text" id="description">
-                </form>
-                <button>add ingrediend</button>
-            </div>
+            <form class="recipe-container">
+                <div class="tags">
+                    <span>Tags</span>
+                    <input type="text" id="tag">
+                </div>
+                <div class="recipe-info">
+                    <label for="time">time:</label>
+                    <input type="time" id="time">
+                    <label for="portions">portions:</label>
+                    <input type="number" id="portions">
+                </div>
+                <div class="ingredients">
+                    <span>Ingredients</span>
+                        <div class="new-ingredient">
+                            <input type="text" id="ingredient" placeholder="ingredient">
+                            <input type="text" id="quantity" placeholder="quantity">
+                            <select>
+                                <option>ml</option>
+                                <option>l</option>
+                                <option>cups</option>
+                                <option>g</option>
+                                <option>dg</option>
+                                <option>kg</option>
+                            </select>
+                        </div>
+
+                    <button type="submit">add ingredient</button>
+                </div>
+                <div class="description">
+                    <input type="text" placeholder="description">
+                </div>
+            </form>
         </div>
         <div class="footer flexbox">
             <ul class="flexbox">

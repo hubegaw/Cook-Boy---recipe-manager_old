@@ -1,5 +1,4 @@
 @import './style.css' only screen and (min-width: 1024px);
-@import './popups.css' only screen and (min-width: 1024px);
 
 .welcome-sign {
     font-size: 24px;
