@@ -6,10 +6,10 @@
 </head>
 <body>
 <div class="container">
-    <?php include('header.php')?>
+    <?php include('header.php') ?>
     <div class="main-content">
 
     </div>
-    <?php include('footer.php')?>
+    <?php include('footer.php') ?>
 </div>
 </body>

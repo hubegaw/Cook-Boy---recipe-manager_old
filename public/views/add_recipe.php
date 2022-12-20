@@ -6,12 +6,12 @@
 </head>
 <body>
     <div class="container">
-        <?php include('header.php')?>
+        <?php include('modules/header.php') ?>
         <div class="main-content">
-            <form class="recipe-container">
+            <form class="recipe-container" action="addRecipe" ENCTYPE="multipart/form-data">
                 <div class="tags">
                     <span>Tags:</span>
-                    <input type="text" id="tag" placeholder="|">
+                    <input type="text" id="tag" placeholder="#">
                 </div>
                 <div class="recipe-info">
                     <label for="time">time:</label>
@@ -24,25 +24,15 @@
                 </div>
                 <div class="ingredients">
                     <span>Ingredients</span>
-                        <div class="new-ingredient">
-                            <input type="text" id="ingredient" placeholder="ingredient">
-                            <input type="text" id="quantity" placeholder="quantity">
-                            <select>
-                                <option>ml</option>
-                                <option>l</option>
-                                <option>cups</option>
-                                <option>g</option>
-                                <option>dg</option>
-                                <option>kg</option>
-                            </select>
-                        </div>
-                    <button type="submit">add ingredient</button>
+                    <?php include('modules/new_ingredient.php') ?>
+                    <button>add ingredient</button>
                 </div>
-                <div class="description">
-                    <input type="text" placeholder="description">
-                </div>
+                <label class="description" for="description">
+                    <textarea name="description" placeholder="description" maxlength="3000"></textarea>
+                </label>
+                <button type="submit" id="save-btn">Save</button>
             </form>
         </div>
-        <?php include('footer.php')?>
+        <?php include('modules/footer.php') ?>
     </div>
 </body>

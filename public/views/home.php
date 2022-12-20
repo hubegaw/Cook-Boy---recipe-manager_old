@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="container">
-        <?php include('header.php')?>
+        <?php include('modules/header.php')?>
         <div class="main-content">
             <div class="welcome-sign">
                 <span>Welcome to Cook Boy - Your recipe manager!</span>
@@ -53,6 +53,6 @@
                 <button class="more-button">more</button>
             </div>
         </div>
-        <?php include('footer.php')?>
+        <?php include('modules/footer.php') ?>
     </div>
 </body>
