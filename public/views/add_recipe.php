@@ -14,13 +14,17 @@
                     <input type="text" id="tag" placeholder="#">
                 </div>
                 <div class="recipe-info">
-                    <label for="time">time:</label>
-                    <input type="time" id="time">
-                    <label for="portions">portions:</label>
-                    <input type="number" id="portions">
+                    <label for="time">time:
+                        <input type="time" id="time" name="time">
+                    </label>
+                    <label for="portions">portions:
+                        <input type="number" id="portions" name="portions">
+                    </label>
                 </div>
                 <div class="title">
-                    <input type="text" placeholder="Title">
+                    <label for="title">
+                        <input name="title" type="text" placeholder="Title">
+                    </label>
                 </div>
                 <div class="ingredients">
                     <span>Ingredients</span>
