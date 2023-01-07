@@ -4,11 +4,6 @@ require_once 'AppController.php';
 class RecipeController extends AppController {
 
     private $message = [];
-    private $title;
-    private $description;
-    private $ingredients = array();
-    private $time;
-    private $portions;
     private $recipeRepository;
 
     public function __construct()
@@ -18,18 +13,20 @@ class RecipeController extends AppController {
     }
     public function addRecipe() {
         if($this->isPost() && $this->validate()) {
-            $recipe = new Recipe($_POST['title'], $_POST['description'], $_POST['ingredients'], $_POST['time'], $_POST['portions']);
-            $this->recipeRepository->addProject($recipe);
-            return $this->render("my_recipes");
+            $recipe = new Recipe($_POST['title'], $_POST['description'], $_POST['time'], $_POST['portions']);
+            $this->recipeRepository->addRecipe($recipe);
+
+
+            return $this->render("my_recipes", ['messages' => $this->message]);
         }
 
-        $this->render("add_recipe");
+        return $this->render("add_recipe", ['messages' => $this->message]);
     }
 
     private function validate(): bool
     {
-        if($_POST['$title'] != null && $_POST['$description'] != null && $_POST['$ingredients'] != null
-            && $_POST['$time'] != null && ($_POST['$portions'] != null || $_POST['$portions'] > 0)) {
+        if($_POST['$title'] != null && $_POST['$description'] != null && $_POST['$time'] != null
+            && $_POST['$portions'] != null && $_POST['$portions'] > 0) {
             return true;
         }
         return false;

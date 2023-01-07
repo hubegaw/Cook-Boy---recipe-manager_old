@@ -1,6 +1,6 @@
 <?php
 
-const USERNAME='postgres';
-const PASSWORD='postgres';
-const HOST='cookboydb.cki5vqbelwve.eu-central-1.rds.amazonaws.com';
+const USERNAME='root';
+const PASSWORD='3fKfJrEY';
+const HOST='localhost';
 const DATABASE='cookboy';

@@ -2,13 +2,9 @@
 
 class Ingredient {
     private $name;
-    private $amount;
-    private $measure;
 
-    public function __construct($name, $amount, $measure) {
+    public function __construct($name) {
         $this->name = $name;
-        $this->amount = $amount;
-        $this->measure = $measure;
     }
 
     public function getName()
@@ -20,25 +16,4 @@ class Ingredient {
     {
         $this->name = $name;
     }
-
-    public function getAmount()
-    {
-        return $this->amount;
-    }
-
-    public function setAmount($amount): void
-    {
-        $this->amount = $amount;
-    }
-
-    public function getMeasure()
-    {
-        return $this->measure;
-    }
-
-    public function setMeasure($measure): void
-    {
-        $this->measure = $measure;
-    }
-
 }

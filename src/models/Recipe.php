@@ -3,14 +3,12 @@
 class Recipe {
     private string $title;
     private string $description;
-    private array $ingredients = array();
     private string $time;
     private string $portions;
 
-    public function __construct($title, $description, $ingredients, $time, $portions) {
+    public function __construct($title, $description, $time, $portions) {
         $this->title = $title;
         $this->description = $description;
-        $this->ingredients = $ingredients;
         $this->time = $time;
         $this->portions = $portions;
     }
@@ -29,14 +27,6 @@ class Recipe {
 
     public function setDescription($description): void {
         $this->description = $description;
-    }
-
-    public function getIngredients(): array {
-        return $this->ingredients;
-    }
-
-    public function setIngredients(array $ingredients): void {
-        $this->ingredients = $ingredients;
     }
 
     public function getTime(): string {

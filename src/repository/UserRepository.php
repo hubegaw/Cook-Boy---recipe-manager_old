@@ -9,7 +9,7 @@ class UserRepository extends Repository
     public function getUser(string $email, string $password): ?User
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM users u WHERE email = :email AND password =:password
+            SELECT * FROM users WHERE email = :email AND password =:password
         ');
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->bindParam(':password', $password, PDO::PARAM_STR);
@@ -17,21 +17,20 @@ class UserRepository extends Repository
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user == false) {
+        if (!$user) {
             return null;
         }
 
         return new User(
             $user['email'],
             $user['password'],
-            $user['name'],
         );
     }
 
     public function addUser(User $user)
     {
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO users_details (name, email, password)
+            INSERT INTO users (name, email, password)
             VALUES (?, ?, ?)
         ');
 
