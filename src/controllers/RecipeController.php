@@ -1,5 +1,7 @@
 <?php
 require_once 'AppController.php';
+require_once __DIR__ .'/../models/Recipe.php';
+require_once __DIR__.'/../repository/RecipeRepository.php';
 
 class RecipeController extends AppController {
 
@@ -11,16 +13,24 @@ class RecipeController extends AppController {
         parent::__construct();
         $this->recipeRepository = new RecipeRepository();
     }
-    public function addRecipe() {
+
+    public function add_recipe() {
         if($this->isPost() && $this->validate()) {
-            $recipe = new Recipe($_POST['title'], $_POST['description'], $_POST['time'], $_POST['portions']);
-            $this->recipeRepository->addRecipe($recipe);
+            $recipe = new Recipe(null, $_POST['title'], $_POST['description'], $_POST['time'], $_POST['portions'], "");
+            $this->recipeRepository->addRecipeInfo($recipe);
 
-
-            return $this->render("my_recipes", ['messages' => $this->message]);
+            return $this->render("my_recipes", [
+                'recipes' => $this->recipeRepository->getRecipes(1),
+                'messages' => $this->message]);
         }
 
         return $this->render("add_recipe", ['messages' => $this->message]);
+    }
+
+    public function my_recipes() {
+        return $this->render("my_recipes", [
+            'recipes' => $this->recipeRepository->getRecipes(1),
+            'messages' => $this->message]);
     }
 
     private function validate(): bool

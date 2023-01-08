@@ -17,6 +17,21 @@
                     <button >Filters</button>
                 </div>
             </div>
+            <div class="recipes-container">
+                <?php foreach ($recipes as $recipe): ?>
+                <ul>
+                    <li>
+                        <div class="name">
+                            <?= $recipe-> getTitle();?>
+                        </div>
+                        <div class="info">
+                            <div class="time"><?= $recipe-> getTime();?></div>
+                            <div class="portions"><?= $recipe-> getPortions();?></div>
+                        </div>
+                    </li>
+                </ul>
+                <?php endforeach; ?>
+            </div>
         </div>
         <?php include('modules/footer.php') ?>
     </div>

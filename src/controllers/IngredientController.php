@@ -16,7 +16,7 @@ class IngredientController extends AppController {
 
     private function validate(): bool
     {
-        if($_POST['$name'] != null) {
+        if($_POST['$name'] != null && $_POST['$quantity'] != null && $_POST['$measure'] != null) {
             return true;
         }
         return false;

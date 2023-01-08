@@ -6,32 +6,60 @@ require_once __DIR__.'/../models/Recipe.php';
 class RecipeRepository extends Repository
 {
 
-    public function getRecipe(int $id): ?Recipe
+    public function getRecipe(Recipe $recipe): ?Recipe
     {
+        $ingredients = [];
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM cookboy.recipes WHERE recipe_id = :recipeID
+            SELECT * FROM public.recipes LEFT JOIN recipe_ingredients ri on recipes.recipe_id = ri.recipe_id
+            LEFT JOIN users_recipes ur on recipes.recipe_id = ur.recipe_id
         ');
+        $id = $recipe->getRecipeID();
         $stmt->bindParam(':recipe_id', $id, PDO::PARAM_INT);
         $stmt->execute();
 
-        $recipe = $stmt->fetch(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        if (!$recipe) {
-            return null;
+        foreach ($results as $result) {
+            $ingredients[] = $result;
         }
 
-        return new Recipe(
-            $recipe['title'],
-            $recipe['description'],
-            $recipe['time'],
-            $recipe['portions']
-        );
+        $recipe->setIngredients($ingredients);
+
+        return $recipe;
     }
 
-    public function addRecipe(Recipe $recipe): void
+    public function getRecipes(int $userID): array
     {
+        $results = [];
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO recipes (title, description, time, portions, created_by, created_at)
+            SELECT r.recipe_id, r.title, r.description, r.time, r.portions FROM users_recipes ur 
+                LEFT JOIN recipes r on ur.recipe_id = r.recipe_id
+                WHERE user_id = :userID
+        ');
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($recipes as $recipe) {
+            $results[] = new Recipe(
+                $recipe['recipe_id'],
+                $recipe['title'],
+                $recipe['description'],
+                $recipe['time'],
+                $recipe['portions'],
+                ""
+            );
+        }
+
+        return $results;
+    }
+
+    public function addRecipeInfo(Recipe $recipe): void
+    {
+
+        $stmt = $this->database->connect()->prepare('
+            INSERT INTO public.recipes (title, description, time, portions, created_by, created_at)
             VALUES (?, ?, ?, ?, ?, ?)
         ');
 
@@ -48,7 +76,7 @@ class RecipeRepository extends Repository
             $created_at->getTimestamp()
         ]);
 
-        //$this->mergeRecipeInfo();
+        $this->mergeRecipeInfo();
     }
 
     public function mergeRecipeInfo(): void {
@@ -57,7 +85,7 @@ class RecipeRepository extends Repository
         $recipeID = $this->getLastAddedRecipeId();
 
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity, measure)
+            INSERT INTO public.recipe_ingredients (recipe_id, ingredient_id, quantity, measure)
             VALUES (?, ?, ?, ?)
         ');
 
@@ -69,7 +97,7 @@ class RecipeRepository extends Repository
             $s_name = $names;
             $s_quantity = $quantity[$index];
             $s_measure = $measure[$index];
-            $ingredient = new Ingredient($s_name);
+            $ingredient = new Ingredient($s_name, $s_quantity, $s_measure);
             $ingredientRepository->addIngredient($ingredient);
             $ingredientID = $ingredientRepository->getLastAddedIngredientId();
 
@@ -83,11 +111,12 @@ class RecipeRepository extends Repository
     }
 
     private function getLastAddedRecipeId() {
-        $stmt = $this->database->connect()->prepare('SELECT MAX(recipe_id) FROM cookboy.recipes');
+        $stmt = $this->database->connect()->prepare('SELECT MAX(recipe_id) FROM public.recipes');
         $stmt->execute();
 
         $recipe = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return $recipe['recipe_id'];
     }
+
 }

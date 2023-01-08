@@ -55,8 +55,12 @@ body {
     margin: 70px;
 }
 
-.sign-up {
+.log-in {
     display: none;
+}
+
+.sign-up {
+    display: flex;
     width: 410px;
     height: 545px;
 }
@@ -157,4 +161,8 @@ body {
     background: none;
     color: #484848;
     font-weight: bold;
+}
+
+.no-valid {
+    border: 2px solid red;
 }

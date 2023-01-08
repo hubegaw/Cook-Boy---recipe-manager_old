@@ -1,16 +1,26 @@
 <?php
 
 class Recipe {
+    private int $recipeID;
     private string $title;
     private string $description;
     private string $time;
     private string $portions;
 
-    public function __construct($title, $description, $time, $portions) {
+    private array $ingredients;
+
+    public function __construct($recipeID, $title, $description, $time, $portions, $ingredients) {
+        $this->recipeID = $recipeID;
         $this->title = $title;
         $this->description = $description;
         $this->time = $time;
         $this->portions = $portions;
+        $this->ingredients = $ingredients;
+    }
+
+    public function getRecipeID(): int
+    {
+        return $this->recipeID;
     }
 
     public function getTitle(): string {
@@ -44,4 +54,15 @@ class Recipe {
     public function setPortions($portions): void {
         $this->portions = $portions;
     }
+
+    public function getIngredients(): array {
+        return $this->ingredients;
+    }
+
+    public function setIngredients(array $ingredients): void
+    {
+        $this->ingredients = $ingredients;
+    }
+
+
 }

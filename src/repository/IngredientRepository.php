@@ -5,18 +5,18 @@ require_once __DIR__.'/../models/Ingredient.php';
 class IngredientRepository extends Repository
 {
     private array $ingredients = [];
-    public function getIngredients(int $recipeID, int $ingredientID): array
+    public function getIngredients(int $recipeID): array
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM cookboy.recipe_ingredients WHERE recipe_id = :recipeID 
-                                                    AND ingredient_id = :ingredientID
+            SELECT i.name, ri.quantity, ri.measure FROM recipe_ingredients ri 
+                LEFT JOIN ingredients i on i.ingredient_id = ri.ingredient_id
+                WHERE recipe_id = :recipeID
         ');
         $stmt->bindParam(':recipeID', $recipeID, PDO::PARAM_INT);
-        $stmt->bindParam(':ingredientID', $ingredientID, PDO::PARAM_INT);
         $stmt->execute();
 
         while($ingredient = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $ingredients[] = new Ingredient($ingredient['name']);
+            $ingredients[] = new Ingredient($ingredient['name'], $ingredient['quantity'], $ingredient['measure']);
         }
 
         return $ingredients;
@@ -33,7 +33,7 @@ class IngredientRepository extends Repository
     }
 
     public function getLastAddedIngredientId() {
-        $stmt = $this->database->connect()->prepare('SELECT MAX(ingredient_id) FROM cookboy.ingredients');
+        $stmt = $this->database->connect()->prepare('SELECT MAX(ingredient_id) FROM public.ingredients');
         $stmt->execute();
 
         $ingredient = $stmt->fetch(PDO::FETCH_ASSOC);
