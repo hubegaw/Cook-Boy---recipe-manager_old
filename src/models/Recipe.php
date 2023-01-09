@@ -5,7 +5,7 @@ class Recipe {
     private string $title;
     private string $description;
     private string $time;
-    private string $portions;
+    private int $portions;
 
     private array $ingredients;
 
@@ -47,7 +47,7 @@ class Recipe {
         $this->time = $time;
     }
 
-    public function getPortions(): string {
+    public function getPortions(): int {
         return $this->portions;
     }
 

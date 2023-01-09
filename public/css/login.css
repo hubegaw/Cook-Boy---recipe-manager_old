@@ -56,11 +56,11 @@ body {
 }
 
 .log-in {
-    display: none;
+    display: flex;
 }
 
 .sign-up {
-    display: flex;
+    display: none;
     width: 410px;
     height: 545px;
 }

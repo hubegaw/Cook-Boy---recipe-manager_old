@@ -5,10 +5,10 @@ class User {
     private $password;
     private $name;
 
-    public function __construct(string $email, string $password) {
+    public function __construct(string $email, string $password, string $name) {
         $this->email = $email;
         $this->password = $password;
-
+        $this->name = $name;
     }
 
     public function getEmail(): string {

@@ -8,7 +8,7 @@
     <div class="container">
         <?php include('modules/header.php') ?>
         <div class="main-content">
-            <form class="recipe-container" action="addRecipe" ENCTYPE="multipart/form-data" method="POST">
+            <form class="recipe-container" action="addRecipe" method="POST">
                 <div class="tags">
                     <span>Tags:</span>
                     <input type="text" id="tag" placeholder="#">

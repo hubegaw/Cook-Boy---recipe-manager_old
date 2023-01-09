@@ -13,6 +13,9 @@ class SecurityController extends AppController {
         $this->userRepository = new UserRepository();
     }
 
+    /**
+     * @throws Exception
+     */
     public function login()
     {
         if (!$this->isPost()) {
@@ -38,5 +41,32 @@ class SecurityController extends AppController {
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/home");
+    }
+
+    public function register()
+    {
+        if (!$this->isPost()) {
+            return $this->render('login');
+        }
+
+        $name = $_POST['name'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+        if (password_needs_rehash($hashedPassword, PASSWORD_BCRYPT))
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+        $user = new User($email, $password, $name);
+
+        $this->userRepository->addUser($user);
+
+        return $this->render('login', ['messages' => ['You\'ve been successfully registered!']]);
+    }
+
+    public function logout()
+    {
+        session_destroy();
+        return $this->render('login', ['messages' => ['You have been logged out successfully']]);
     }
 }

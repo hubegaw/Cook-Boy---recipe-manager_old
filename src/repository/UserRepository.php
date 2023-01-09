@@ -5,7 +5,11 @@ require_once __DIR__.'/../models/User.php';
 
 class UserRepository extends Repository
 {
+    private $userID;
 
+    /**
+     * @throws Exception
+     */
     public function getUser(string $email, string $password): ?User
     {
         $stmt = $this->database->connect()->prepare('
@@ -18,12 +22,19 @@ class UserRepository extends Repository
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$user) {
-            return null;
+            throw new Exception("User not found");
         }
+
+        session_start();
+
+        $this->userID = $user['user_id'];
+        $_SESSION['user_uuid'] = $user['user_id'];
+        $_SESSION['name'] = $user['name'];
 
         return new User(
             $user['email'],
             $user['password'],
+            $user['name']
         );
     }
 
@@ -39,5 +50,11 @@ class UserRepository extends Repository
             $user->getEmail(),
             $user->getPassword()
         ]);
+
+        session_start();
+    }
+
+    public function getuserID() {
+        return $this->userID;
     }
 }

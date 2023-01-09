@@ -11,4 +11,5 @@
         <a href="my_recipes">My recipes</a>
         <a href="add_recipe">Add recipe</a>
     </nav>
+    <a href="#">Hello, <?php if(isset($_SESSION)) echo $_SESSION['name']?></a>
 </div>
