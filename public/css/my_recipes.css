@@ -1,62 +1,72 @@
-@import './style.css' only screen and (min-width: 1024px);
+@import './style.css';
+@media screen and (min-width: 1024px) {
+    .panel {
+        width: 90%;
+        height: 50px;
+        margin-top: 30px;
+        align-items: center;
+    }
 
-.panel {
-    width: 90%;
-    height: 50px;
-    margin-top: 30px;
-    align-items: center;
-}
+    .recipes-count {
+        padding-right: 15px;
+    }
 
-.recipes-count {
-    padding: 0 15px;
-}
+    .create-recipe {
+        margin-left: 150px;
+        font-weight: 500;
+    }
 
-.create-recipe {
-    margin-left: 150px;
-    font-weight: 500;
-}
+    .filters {
+        margin-left: auto;
+    }
 
-.filters { 
-    margin-left: auto;
-}
+    .recipes-container {
+        width: 90%;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 
-.recipes-container {
-    width: 90%;
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-}
+    .recipe-tile {
+        width: 236px;
+        height: 298px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #9BB0A5;
+        margin-right: 15px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        color: #EFEFEF;
+    }
 
-.recipes-container ul {
-    width: 100%;
-    height: 100%;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
+    .recipe-image {
+        width: 100%;
+        height: 50%;
+        background: #EFEFEF;
+        box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 15px 15px 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
 
-.recipes-container li {
-    width: 100%;
-    height: 60px;
-    background: #9BB0A5;
-    color: #3b3b3b;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
-    padding: 0 15px;
+    .recipe-image img {
+        width: 128px;
+        height: 128px;
+    }
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
+    .name {
+        width: 90%;
+        height: 30%;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
 
-.name {
-    width: 50%;
-    text-align: left;
-}
-
-.info {
-    width: 40%;
-    display: flex;
-    justify-content: flex-start;
+    .info {
+        width: 90%;
+        height: 20%;
+    }
 }

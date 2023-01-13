@@ -2,5 +2,5 @@
 
 const USERNAME='postgres';
 const PASSWORD='postgres';
-const HOST='cookboydb.cki5vqbelwve.eu-central-1.rds.amazonaws.com';
-const DATABASE='cookboy';
+const HOST='127.0.0.1';
+const DATABASE='postgres';

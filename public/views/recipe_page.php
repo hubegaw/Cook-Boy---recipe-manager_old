@@ -8,7 +8,8 @@
 <div class="container">
     <?php include('modules/header.php') ?>
     <div class="main-content">
-        <form class="recipe-container" action="addRecipe" ENCTYPE="multipart/form-data">
+        <form class="recipe-container" action="getRecipe" ENCTYPE="multipart/form-data" method="GET">
+            <?php if(isset($recipe)) ?>
             <div class="tags">
                 <span>Tags:</span>
                 <input type="text" id="tag" placeholder="#">
@@ -24,13 +25,12 @@
             </div>
             <div class="ingredients">
                 <span>Ingredients</span>
-                <?php include('modules/new_ingredient.php') ?>
-                <button>add ingredient</button>
             </div>
             <label class="description" for="description">
                 <textarea name="description" placeholder="description" maxlength="3000"></textarea>
             </label>
             <button type="submit" id="save-btn">Save</button>
+
         </form>
     </div>
     <?php include('modules/footer.php') ?>

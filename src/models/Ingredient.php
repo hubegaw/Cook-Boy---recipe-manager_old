@@ -2,12 +2,13 @@
 
 class Ingredient {
     private $name;
-    private $amount;
+    private $quantity;
     private $measure;
 
-    public function __construct($name, $amount, $measure) {
+    public function __construct($name, $quantity, $measure)
+    {
         $this->name = $name;
-        $this->amount = $amount;
+        $this->quantity = $quantity;
         $this->measure = $measure;
     }
 
@@ -21,14 +22,14 @@ class Ingredient {
         $this->name = $name;
     }
 
-    public function getAmount()
+    public function getQuantity()
     {
-        return $this->amount;
+        return $this->quantity;
     }
 
-    public function setAmount($amount): void
+    public function setQuantity($quantity): void
     {
-        $this->amount = $amount;
+        $this->quantity = $quantity;
     }
 
     public function getMeasure()

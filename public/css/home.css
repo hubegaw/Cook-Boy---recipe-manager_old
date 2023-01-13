@@ -1,78 +1,79 @@
-@import './style.css' only screen and (min-width: 1024px);
+@import './style.css';
+@media screen and (min-width: 1024px) {
+    .welcome-sign {
+        font-size: 24px;
+        margin: 20px 0;
+        line-height: 28px;
+        width: 100%;
+    }
 
-.welcome-sign {
-    font-size: 24px;
-    margin: 20px 0;
-    line-height: 28px;
-    width: 100%;
-}
+    .suggestions {
+        flex-grow: 1;
+        width: 100%;
+        min-height: 300px;
+    }
 
-.suggestions {
-    flex-grow: 1;
-    width: 100%;
-    min-height: 300px;
-}
+    .features-container {
+        min-height: 20vh;
+        width: 100%;
 
-.features-container {
-    min-height: 20vh;
-    width: 100%;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 15px;
-}
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 15px;
+    }
 
-.features-header {
-    order: 0;
-}
+    .features-header {
+        order: 0;
+    }
 
-.more-button {
-    order: 2;
-    color: #3b3b3b;
-    font-size: 14px;
-    text-decoration: underline;
-}
+    .more-button {
+        order: 2;
+        color: #3b3b3b;
+        font-size: 14px;
+        text-decoration: underline;
+    }
 
-.features {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    order: 1;
-    width: 60%;
-    padding: 1vh 0;
-    list-style-type: none;
-    margin: 0;
-}
+    .features {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        order: 1;
+        width: 60%;
+        padding: 1vh 0;
+        list-style-type: none;
+        margin: 0;
+    }
 
-.features img {
-    width: 48px;
-    height: 48px;
-    padding: 5px;
-    color: #3b3b3b;
-}
+    .features img {
+        width: 48px;
+        height: 48px;
+        padding: 5px;
+        color: #3b3b3b;
+    }
 
-.features li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    min-width: 290px;
-    padding: 10px 2px 10px 10px ;
-    white-space: pre-line;
-    font-size: 16px;
-}
+    .features li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        min-width: 290px;
+        padding: 10px 2px 10px 10px;
+        white-space: pre-line;
+        font-size: 16px;
+    }
 
-.feature-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
+    .feature-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 
-.feature-text {
-    padding: 0 5px 5px 5px;
-}
+    .feature-text {
+        padding: 0 5px 5px 5px;
+    }
 
-.features span {
-    padding: 5px;
+    .features span {
+        padding: 5px;
+    }
 }

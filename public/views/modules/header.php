@@ -11,4 +11,12 @@
         <a href="my_recipes">My recipes</a>
         <a href="add_recipe">Add recipe</a>
     </nav>
+    <div id="parent-settings">Hello, <?php echo $_SESSION['name']?>!
+        <div id="settings">
+            <a href="settings">Settings</a>
+            <form action="logout" method="GET">
+                <button>Log out</button>
+            </form>
+        </div>
+    </div>
 </div>
