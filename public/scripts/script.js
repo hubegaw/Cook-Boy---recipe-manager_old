@@ -3,6 +3,10 @@ const emailInput = form.querySelector('input[name="register-email"]')
 const passwordInput = form.querySelector('input[name="register-password"]')
 const nameInput = form.querySelector('input[name="register-name"]')
 
+const content = document.querySelector('div[class="main-content"]')
+const loginPanel = content.querySelector('div[id="log-in"]')
+const registerPanel = content.querySelector('div[id="sign-up"]')
+
 function isEmail(email) {
     return /\+@\S+\.\S+/.test(email);
 }
@@ -44,6 +48,16 @@ function handleNameValidation() {
         },
         2000
     );
+}
+
+document.getElementById("to-register").onclick = function () {
+    document.getElementById("log-in").style.display = "none";
+    document.getElementById("sign-up").style.display = "flex";
+}
+
+document.getElementById("to-login").onclick = function () {
+    document.getElementById("log-in").style.display = "flex";
+    document.getElementById("sign-up").style.display = "none";
 }
 
 emailInput.addEventListener('keyup', validateEmail);

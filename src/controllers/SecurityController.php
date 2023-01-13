@@ -25,17 +25,14 @@ class SecurityController extends AppController {
         $email = $_POST['email-input'];
         $password = $_POST['password-input'];
 
-        $user = $this->userRepository->getUser($email, $password);
-
-        if (!$user) {
-            return $this->render('login', ['messages' => ['User not found!']]);
+        try {
+            $user = $this->userRepository->getUser($email, $password);
+        } catch (Exception $error) {
+            return $this->render('login', ["messages" => [$error->getMessage()]]);
         }
 
-        if ($user->getEmail() !== $email) {
-            return $this->render('login', ['messages' => ['User with this email not exist!']]);
-        }
 
-        if ($user->getPassword() !== $password) {
+        if ($password != $user->getPassword()) {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
@@ -49,24 +46,29 @@ class SecurityController extends AppController {
             return $this->render('login');
         }
 
-        $name = $_POST['name'];
-        $password = $_POST['password'];
-        $email = $_POST['email'];
+        $name = $_POST['register-name'];
+        $password = $_POST['register-password'];
+        $email = $_POST['register-email'];
+
+        if($name == null || $password == null || $email == null) {
+            return $this->render('login', ['messages' => ['Please, fill all inputs!']]);
+        }
 
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
         if (password_needs_rehash($hashedPassword, PASSWORD_BCRYPT))
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-        $user = new User($email, $password, $name);
+        $user = new User($email, $hashedPassword, $name);
 
         $this->userRepository->addUser($user);
 
-        return $this->render('login', ['messages' => ['You\'ve been successfully registered!']]);
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/login");
     }
 
     public function logout()
     {
         session_destroy();
-        return $this->render('login', ['messages' => ['You have been logged out successfully']]);
+        return $this->render('login', ['messages' => ['Logged out successfully!']]);
     }
 }

@@ -40,4 +40,15 @@ class IngredientRepository extends Repository
 
         return $ingredient['ingredient_id'];
     }
+
+    public function getMeasures() {
+        $stmt = $this->database->connect()->prepare('SELECT name FROM public.measures');
+        $stmt->execute();
+
+        while($measure = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $measures[] = $measure['name'];
+        }
+
+        return $measures;
+    }
 }

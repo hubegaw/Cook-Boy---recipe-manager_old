@@ -17,9 +17,9 @@ class RecipeController extends AppController {
         $this->ingredientRepository = new IngredientRepository();
     }
 
-    public function add_recipe() {
+    public function addRecipe() {
         if($this->isPost() && $this->validate()) {
-            $recipe = new Recipe(null, $_POST['title'], $_POST['description'], $_POST['time'], $_POST['portions'], "");
+            $recipe = new Recipe(null, $_POST['title'], $_POST['description'], $_POST['time'], $_POST['portions'], []);
             $this->recipeRepository->addRecipe($recipe);
 
             return $this->render("my_recipes", [
@@ -27,12 +27,15 @@ class RecipeController extends AppController {
                 'messages' => $this->message]);
         }
 
-        return $this->render("add_recipe", ['messages' => $this->message]);
+        return $this->render("add_recipe", [
+            'measures' => $this->ingredientRepository->getMeasures(),
+            'messages' => $this->message]);
     }
 
     public function my_recipes() {
         return $this->render("my_recipes", [
             'recipes' => $this->recipeRepository->getRecipes(),
+            'measures' => $this->ingredientRepository->getMeasures(),
             'messages' => $this->message]);
     }
 

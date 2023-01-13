@@ -3,7 +3,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/login.css">
     <title>Cook Boy</title>
     <style>@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap');</style>
-    <script type="text/javascript" src="../scripts" defer></script>
+    <script type="text/javascript" src="../scripts/script.js" defer></script>
 </head>
 <body>
 <div class="container">
@@ -11,7 +11,7 @@
         <div class="logo">
             <img src="public/img/header/logo.png" alt="Cook Boy logo">
         </div>
-        <div class="log-in">
+        <div class="log-in" id="log-in">
             <span>We are happy to see you again!</span>
             <form class="inputs" action="login" method="POST">
                 <div class="messages">
@@ -40,12 +40,12 @@
             </form>
             <div class="to-sign-up">
                 Not registered yet?
-                <button>Create an Account</button>
+                <button id="to-register">Create an Account</button>
             </div>
         </div>
-        <div class="sign-up">
+        <div class="sign-up" id="sign-up">
             <span>Hello there, thank you for joining!</span>
-            <form class="inputs" action="" method="POST">
+            <form class="inputs" action="register" method="POST">
                 <div class="email">
                     <label for="email-input" class="text">Email address
                         <input name="register-email" class="email-input" type="text" placeholder="myrecipes@email.com">
@@ -71,9 +71,10 @@
             </form>
             <div class="to-log-in">
                 Already have an Account?
-                <button>Log in</button>
+                <button id="to-login">Log in</button>
             </div>
         </div>
     </div>
 </div>
+
 </body>

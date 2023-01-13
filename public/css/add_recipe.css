@@ -1,112 +1,118 @@
-@import './style.css' only screen and (min-width: 1024px);
+@import './style.css';
 
-.recipe-container {
-    width: 80%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 20px;
-}
+@media screen and (min-width: 1024px) {
+    .recipe-container {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 20px;
+    }
 
-.recipe-container input {
-    background: none;
-    height: 20px;
-    width: 130px;
-    margin-bottom: 10px;
-    font-size: 14px;
-}
+    .recipe-container input {
+        background: none;
+        height: 20px;
+        width: 130px;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
 
-.recipe-container input:focus {
-    outline: none;
-}
+    .recipe-container input:focus {
+        outline: none;
+    }
 
-.tags span{
-    color: #938C83;
-    text-decoration: underline;
-    font-size: 14px;
-}
+    .tags span {
+        color: #938C83;
+        text-decoration: underline;
+        font-size: 14px;
+    }
 
-.tags input {
-    width: 100px;
-    height: 20px;
-    margin-bottom: 10px;
-}
+    .tags input {
+        width: 100px;
+        height: 20px;
+        margin-bottom: 10px;
+    }
 
-.recipe-info {
-    font-size: 16px;
-}
+    .recipe-info {
+        font-size: 16px;
+    }
 
-.recipe-info input {
-    width: 60px;
-    margin-right: 20px;
-}
+    #time {
+        width: 65px;
+        margin-right: 10px;
+    }
 
-.title input {
-    margin: 10px 0;
-    width: 25vw;
-    font-size: 20px;
-}
+    #portions {
+        width: 40px;
+    }
 
-.ingredients {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 10px;
-}
+    .title input {
+        margin: 10px 0;
+        width: 25vw;
+        font-size: 20px;
+    }
 
-.ingredients span {
-    margin: 10px 0;
-}
+    .ingredients {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 10px;
+    }
 
-select, .ingredients button {
-    font-family: inherit;
-    border: none;
-    color: #3b3b3b;
-    #background: rgba(0, 0, 0, 0.10);
-    background: none;
-    height: 25px;
-}
+    .ingredients span {
+        margin: 10px 0;
+    }
 
-.ingredients button {
-    background: none;
-    text-decoration: underline;
-    padding: 0;
-    margin-bottom: 10px;
-}
+    select, .ingredients button {
+        font-family: inherit;
+        border: none;
+        color: #3b3b3b;
+        #background: rgba(0, 0, 0, 0.10);
+        background: none;
+        height: 25px;
+    }
 
-.description {
-    width: 100%;
-    flex-grow: 1;
-    min-height: 40vh;
-}
+    #add-ingredient {
+        text-decoration: underline;
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #3b3b3b;
+    }
 
-textarea {
-    width: 100%;
-    height: 100%;
-    background: none;
-    border: none;
-    font-family: inherit;
-    font-size: 14px;
-    resize: none;
-    padding: 0;
-}
+    .description {
+        width: 100%;
+        flex-grow: 1;
+        min-height: 40vh;
+    }
 
-textarea:focus {
-    outline: none;
-}
+    textarea {
+        width: 100%;
+        height: 100%;
+        background: none;
+        border: none;
+        font-family: inherit;
+        font-size: 14px;
+        resize: none;
+        padding: 0;
+    }
 
-#save-btn {
-    width: 90px;
-    height: 40px;
-    border-radius: 15px;
-    font-family: inherit;
-    border: none;
-    background: #A46F5F;
-    color: #EFEFEF;
-    font-size: 16px;
-    align-self: flex-end;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    margin-right: 20px;
-    margin-bottom: 20px
+    textarea:focus {
+        outline: none;
+    }
+
+    #save-btn {
+        width: 90px;
+        height: 40px;
+        border-radius: 15px;
+        font-family: inherit;
+        border: none;
+        background: #A46F5F;
+        color: #EFEFEF;
+        font-size: 16px;
+        align-self: flex-end;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        margin-right: 20px;
+        margin-bottom: 20px
+    }
 }

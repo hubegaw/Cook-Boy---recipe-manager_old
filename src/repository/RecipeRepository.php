@@ -35,9 +35,11 @@ class RecipeRepository extends Repository
         $results = [];
         $stmt = $this->database->connect()->prepare('
             SELECT r.recipe_id, r.title, r.description, r.time, r.portions FROM recipes r
-                LEFT JOIN user_recipes ur on ur.user_id = :userID
+            LEFT JOIN user_recipes ur on r.recipe_id = ur.recipe_id WHERE ur.user_id = :userID
         ');
-        $stmt->bindParam(':userID', $_SESSION['user_uuid'], PDO::PARAM_INT);
+        session_start();
+
+        $stmt->bindParam(':userID', $_SESSION['user_id'], PDO::PARAM_INT);
         $stmt->execute();
 
         $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -59,6 +61,7 @@ class RecipeRepository extends Repository
 
     public function addRecipe(Recipe $recipe): void
     {
+        session_start();
         $stmt = $this->database->connect()->prepare('
             INSERT INTO public.recipes (title, description, time, portions, created_by, created_at)
             VALUES (?, ?, ?, ?, ?, ?)
@@ -110,24 +113,12 @@ class RecipeRepository extends Repository
     }
 
     private function getLastAddedRecipeId() {
+        session_start();
         $stmt = $this->database->connect()->prepare('SELECT MAX(recipe_id) FROM public.recipes');
         $stmt->execute();
 
-        $recipe = $stmt->fetch(PDO::FETCH_ASSOC);
+        $recipeID = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $recipe['recipe_id'];
+        return $recipeID['recipe_id'];
     }
-
-    public function getUserRecipesAmount() {
-        $stmt = $this->database->connect()->prepare('
-            SELECT COUNT(ur.recipe_id) FROM user_recipes ur WHERE ur.user_id = :userID
-        ');
-        $stmt->bindParam(':userID', $_SESSION['user_uuid'], PDO::PARAM_INT);
-        $stmt->execute();
-
-        $count = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        return $count;
-    }
-
 }

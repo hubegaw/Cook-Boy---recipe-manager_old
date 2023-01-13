@@ -5,8 +5,6 @@ require_once __DIR__.'/../models/User.php';
 
 class UserRepository extends Repository
 {
-    private $userID;
-
     /**
      * @throws Exception
      */
@@ -24,11 +22,8 @@ class UserRepository extends Repository
         if (!$user) {
             throw new Exception("User not found");
         }
-
-        session_start();
-
-        $this->userID = $user['user_id'];
-        $_SESSION['user_uuid'] = $user['user_id'];
+        
+        $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['name'] = $user['name'];
 
         return new User(
@@ -50,11 +45,5 @@ class UserRepository extends Repository
             $user->getEmail(),
             $user->getPassword()
         ]);
-
-        session_start();
-    }
-
-    public function getuserID() {
-        return $this->userID;
     }
 }
