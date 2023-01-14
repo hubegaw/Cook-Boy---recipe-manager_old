@@ -5,23 +5,34 @@ require_once __DIR__.'/../models/Recipe.php';
 
 class RecipeRepository extends Repository
 {
-    private IngredientRepository $ingredient;
-
-    public function getRecipe(Recipe $recipe): ?Recipe
+    public function getRecipe(int $recipeID): ?Recipe
     {
         $ingredients = [];
+        $recipe = new Recipe($recipeID, null, null, null, null, $ingredients);
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.recipes LEFT JOIN recipe_ingredients ri on recipes.recipe_id = ri.recipe_id
-            LEFT JOIN user_recipes ur on recipes.recipe_id = ur.recipe_id
+            SELECT title, description, time, portions FROM public.recipes WHERE recipe_id = :recipe_id
         ');
-        $id = $recipe->getRecipeID();
-        $stmt->bindParam(':recipe_id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':recipe_id', $recipeID, PDO::PARAM_INT);
         $stmt->execute();
+        $results = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $recipe->setTitle($results['title']);
+        $recipe->setDescription($results['description']);
+        $recipe->setTime($results['time']);
+        $recipe->setPortions($results['portions']);
 
-        foreach ($results as $result) {
-            $ingredients[] = $result;
+        $stmt = $this->database->connect()->prepare('
+            SELECT name, quantity, measure FROM public.recipe_ingredients 
+            LEFT JOIN public.ingredients on recipe_ingredients.ingredient_id = ingredients.ingredient_id
+            WHERE recipe_id = :recipe_id
+        ');
+        $stmt->bindParam(':recipe_id', $recipeID, PDO::PARAM_INT);
+        $stmt->execute();
+        $ingredients = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($ingredients as $result) {
+            $ingredient = new Ingredient($result['name'], $result['quantity'], $result['measure']);
+            $ingredients[] = $ingredient;
         }
 
         $recipe->setIngredients($ingredients);
@@ -34,10 +45,9 @@ class RecipeRepository extends Repository
         $ingredient = new IngredientRepository();
         $results = [];
         $stmt = $this->database->connect()->prepare('
-            SELECT r.recipe_id, r.title, r.description, r.time, r.portions FROM recipes r
+            SELECT r.recipe_id, r.title, r.description, r.time, r.portions FROM public.recipes r
             LEFT JOIN user_recipes ur on r.recipe_id = ur.recipe_id WHERE ur.user_id = :userID
         ');
-        session_start();
 
         $stmt->bindParam(':userID', $_SESSION['user_id'], PDO::PARAM_INT);
         $stmt->execute();
@@ -61,13 +71,11 @@ class RecipeRepository extends Repository
 
     public function addRecipe(Recipe $recipe): void
     {
-        session_start();
-        $stmt = $this->database->connect()->prepare('
-            INSERT INTO public.recipes (title, description, time, portions, created_by, created_at)
-            VALUES (?, ?, ?, ?, ?, ?)
-        ');
 
-        $created_at = new DateTimeImmutable();
+        $stmt = $this->database->connect()->prepare('
+            INSERT INTO recipes(title, description, time, portions, created_by, created_at)
+            VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+        ');
 
         $stmt->execute([
             $recipe->getTitle(),
@@ -75,50 +83,57 @@ class RecipeRepository extends Repository
             $recipe->getTime(),
             $recipe->getPortions(),
             $_SESSION['user_id'],
-            $created_at->getTimestamp()
         ]);
-
-        $this->mergeRecipeInfo();
-    }
-
-    public function mergeRecipeInfo(): void {
-        $ingredientRepository = new IngredientRepository();
 
         $recipeID = $this->getLastAddedRecipeId();
 
-        $stmt = $this->database->connect()->prepare('
+        $this->connectRecipeWithIngredients($recipeID);
+        $this->connectRecipeWithUser($recipeID);
+    }
+
+    private function connectRecipeWithIngredients(int $recipeID): void {
+        $ingredientRepository = new IngredientRepository();
+
+        $name = $_POST['ingredient'];
+        $quantity = $_POST['quantity'];
+        $measure = $_POST['measure'];
+
+        foreach($name as $index => $names) {
+            $s_quantity = $quantity[$index];
+            $ingredient_id = $ingredientRepository->addIngredient($name);
+
+            $stmt = $this->database->connect()->prepare('
             INSERT INTO public.recipe_ingredients (recipe_id, ingredient_id, quantity, measure)
             VALUES (?, ?, ?, ?)
         ');
 
-        $name = $_POST['ingredient'];
-        $quantity = $_POST['amount'];
-        $measure = $_POST['measure'];
-
-        foreach($name as $index => $names) {
-            $s_name = $names;
-            $s_quantity = $quantity[$index];
-            $s_measure = $measure[$index];
-            $ingredient = new Ingredient($s_name, $s_quantity, $s_measure);
-            $ingredientRepository->addIngredient($ingredient);
-            $ingredientID = $ingredientRepository->getLastAddedIngredientId();
-
             $stmt->execute([
                 $recipeID,
-                $ingredientID,
+                $ingredient_id,
                 $s_quantity,
-                $s_measure
+                $measure
             ]);
         }
     }
 
+    private function connectRecipeWithUser(int $recipeID) {
+        $stmt = $this->database->connect()->prepare('
+            INSERT INTO public.user_recipes (user_id, recipe_id)
+            VALUES (?, ?)
+        ');
+
+        $stmt->execute([
+            $_SESSION['user_id'],
+            $recipeID
+        ]);
+}
+
     private function getLastAddedRecipeId() {
-        session_start();
+
         $stmt = $this->database->connect()->prepare('SELECT MAX(recipe_id) FROM public.recipes');
         $stmt->execute();
 
         $recipeID = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        return $recipeID['recipe_id'];
+        return $recipeID['max'];
     }
 }

@@ -18,33 +18,39 @@ class RecipeController extends AppController {
     }
 
     public function addRecipe() {
-        if($this->isPost() && $this->validate()) {
-            $recipe = new Recipe(null, $_POST['title'], $_POST['description'], $_POST['time'], $_POST['portions'], []);
+        if($this->isPost()) {
+            if(!$this->validate()) {
+                return $this->render("add_recipe", [
+                    'measures' => $this->ingredientRepository->getMeasures(),
+                    'messages' => "values cannot be empty"]);
+            }
+            $recipe = new Recipe(0, $_POST['title'], $_POST['description'], $_POST['time'], $_POST['portions'], []);
             $this->recipeRepository->addRecipe($recipe);
 
-            return $this->render("my_recipes", [
-                'recipes' => $this->recipeRepository->getRecipes(),
-                'messages' => $this->message]);
+            return $this->my_recipes();
         }
 
         return $this->render("add_recipe", [
             'measures' => $this->ingredientRepository->getMeasures(),
-            'messages' => $this->message]);
+            'messages' => "Recipe added successfully!"]);
     }
 
-    public function my_recipes() {
+    public function my_recipes(string $id=null) {
+        if($id) {
+            return $this->render("recipe_page",[
+                'recipe' => $this->recipeRepository->getRecipe(intval($id))
+            ]);
+        }
         return $this->render("my_recipes", [
             'recipes' => $this->recipeRepository->getRecipes(),
-            'measures' => $this->ingredientRepository->getMeasures(),
             'messages' => $this->message]);
     }
 
     private function validate(): bool
     {
-        if($_POST['$title'] != null && $_POST['$description'] != null && $_POST['$time'] != null
-            && $_POST['$portions'] != null && $_POST['$portions'] > 0) {
-            return true;
+        foreach ($_POST as $value) {
+            if($value == null) return false;
         }
-        return false;
+        return true;
     }
 }

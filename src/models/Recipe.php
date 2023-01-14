@@ -2,10 +2,10 @@
 
 class Recipe {
     private int $recipeID;
-    private string $title;
-    private string $description;
-    private string $time;
-    private int $portions;
+    private $title;
+    private $description;
+    private $time;
+    private $portions;
 
     private array $ingredients;
 
