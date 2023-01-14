@@ -23,7 +23,7 @@
     .recipes-container {
         width: 90%;
         display: flex;
-        flex-grow: 1;
+
         flex-direction: row;
         flex-wrap: wrap;
     }
@@ -36,6 +36,7 @@
         align-items: center;
         background: #9BB0A5;
         margin-right: 15px;
+        margin-bottom: 15px;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 15px;
         color: #EFEFEF;

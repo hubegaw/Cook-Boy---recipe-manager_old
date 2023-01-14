@@ -22,14 +22,16 @@ class IngredientRepository extends Repository
         return $ingredients;
     }
 
-    public function addIngredient(Ingredient $ingredient): void
+    public function addIngredient($name): int
     {
         $stmt = $this->database->connect()->prepare('
             INSERT INTO ingredients(name)
-            VALUES (?)
+            VALUES (?) RETURNING ingredient_id
         ');
 
-        $stmt->execute([$ingredient->getName()]);
+        $ingredient_id = $stmt->execute($name);
+
+        return $ingredient_id;
     }
 
     public function getLastAddedIngredientId() {

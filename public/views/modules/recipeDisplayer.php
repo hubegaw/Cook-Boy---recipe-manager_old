@@ -1,6 +1,6 @@
 <?php if(isset($recipes))
     foreach ($recipes as $recipe): ?>
-        <a href="my_recipes.php?id=<?php $recipe->getRecipeID(); ?>" class="recipe-tile">
+        <a href="my_recipes/<?= $recipe->getRecipeID()?>" class="recipe-tile">
             <div class="recipe-image">
                 <img src="public/img/common/default-dish.png">
             </div>
