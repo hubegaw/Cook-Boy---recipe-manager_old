@@ -7,7 +7,7 @@ class RecipeRepository extends Repository
 {
     public function getRecipe(int $recipeID): ?Recipe
     {
-        $ingredients = [];
+        $ingredients = array();
         $recipe = new Recipe($recipeID, null, null, null, null, $ingredients);
         $stmt = $this->database->connect()->prepare('
             SELECT title, description, time, portions FROM public.recipes WHERE recipe_id = :recipe_id
@@ -28,9 +28,9 @@ class RecipeRepository extends Repository
         ');
         $stmt->bindParam(':recipe_id', $recipeID, PDO::PARAM_INT);
         $stmt->execute();
-        $ingredients = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($ingredients as $result) {
+        foreach ($results as $result) {
             $ingredient = new Ingredient($result['name'], $result['quantity'], $result['measure']);
             $ingredients[] = $ingredient;
         }
@@ -55,15 +55,15 @@ class RecipeRepository extends Repository
         $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($recipes as $recipe) {
-            $ingredients = $ingredient->getIngredients($recipe['recipe_id']);
             $results[] = new Recipe(
                 $recipe['recipe_id'],
                 $recipe['title'],
                 $recipe['description'],
                 $recipe['time'],
                 $recipe['portions'],
-                $ingredients
+                $ingredient->getIngredients($recipe['recipe_id'])
             );
+
         }
 
         return $results;
@@ -89,6 +89,51 @@ class RecipeRepository extends Repository
 
         $this->connectRecipeWithIngredients($recipeID);
         $this->connectRecipeWithUser($recipeID);
+    }
+
+    public function deleteRecipe(int $id) {
+
+        $stmt = $this->database->connect()->prepare('
+        DELETE FROM user_recipes where user_id = :userID and recipe_id = :recipeID');
+        $stmt->bindParam(':userID', $_SESSION['user_id'], PDO::PARAM_INT);
+        $stmt->bindParam(':recipeID', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $stmt = $this->database->connect()->prepare('
+        DELETE FROM recipes where recipe_id = :recipeID');
+        $stmt->bindParam(':recipeID', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public function searchByTitle(String $searchString) {
+        $searchString = '%'.strtolower($searchString).'%';
+        $ingredient = new IngredientRepository();
+        $results = [];
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT r.recipe_id, r.title, r.description, r.time, r.portions FROM public.recipes r
+            LEFT JOIN user_recipes ur on r.recipe_id = ur.recipe_id 
+             WHERE LOWER(r.title) LIKE :search AND ur.user_id = :userID
+        ');
+
+        $stmt->bindParam(':search', $searchString, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $_SESSION['userID'], PDO::PARAM_INT);
+        $stmt->execute();
+
+        $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($recipes as $recipe) {
+            $results[] = new Recipe(
+                $recipe['recipe_id'],
+                $recipe['title'],
+                $recipe['description'],
+                $recipe['time'],
+                $recipe['portions'],
+                $ingredient->getIngredients($recipe['recipe_id'])
+            );
+        }
+
+        return $results;
     }
 
     private function connectRecipeWithIngredients(int $recipeID): void {

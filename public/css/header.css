@@ -1,52 +1,67 @@
-@media screen and (min-width: 1024px) {
-    .header {
-        order: 0;
-        min-height: 60px;
-        background: #F4E5E0;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), inset 0 4px 4px rgba(0, 0, 0, 0.25);
-        padding: 9px 51px;
-    }
+.header {
+    order: 0;
+    min-height: 60px;
+    background: #F4E5E0;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), inset 0 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 9px 51px;
+}
 
-    .logo-container {
-        font-size: 24px;
-    }
+#parent-settings {
+    display: none;
+}
 
-    .navigation {
-        flex-grow: 1;
-        margin-left: 3vw;
-    }
+.hamburger-menu {
+    display: none;
+}
 
-    .logo-container img {
-        margin-right: 1vw;
-        width: 46px;
-        height: 65px;
-    }
+.logo-container {
+    font-size: 24px;
+}
 
-    .search-bar {
-        background: #EFEFEF;
-        margin-right: 2vw;
-        padding-left: 44px;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 15px;
-    }
+.navigation {
+    flex-grow: 1;
+    margin-left: 3vw;
+}
 
-    .navigation input::placeholder {
-        background-image: url('../img/header/search.png');
-        background-repeat: no-repeat;
-        background-size: 16px;
-        background-position: 13px 9px;
-        color: #3b3b3b;
-    }
+.logo-container img {
+    margin-right: 1vw;
+    width: 46px;
+    height: 65px;
+}
 
-    .navigation a {
-        margin-right: 30px;
-    }
+.search-bar {
+    background: #EFEFEF;
+    margin-right: 2vw;
+    padding-left: 44px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
 
-    .more-button {
-        border: none;
-        background: none;
-    }
+.navigation input::placeholder {
+    background-image: url('../img/header/search.png');
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: 13px 9px;
+    color: #3b3b3b;
+}
 
+.navigation a {
+    margin-right: 30px;
+}
+
+#logout-btn {
+    border: none;
+    color: inherit;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.more-button {
+    border: none;
+    background: none;
+}
+
+@media screen and (min-width: 1048px) {
     #parent-settings {
         position: relative;
         display: inline-block;
@@ -62,12 +77,8 @@
         margin: 5px;
     }
 
-    #settings button {
+    #logout-btn {
         background-color: #F4E5E0;
-        border: none;
-        font-size: 18px;
-        color: inherit;
-        cursor: pointer;
         border-top: #646464 solid 1px;
         padding-top: 5px;
     }
@@ -82,5 +93,86 @@
         align-items: center;
         border-radius: 15px;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    }
+}
+
+@media screen and (max-width: 1047px) {
+    .app-name {
+        visibility: hidden;
+        width: 0;
+    }
+
+    .hamburger-menu {
+        position: relative;
+        display: inline-block;
+    }
+
+    .hamburger-menu > button {
+        background-image: url('../img/header/hamburger.png');
+        background-repeat: no-repeat;
+        background-size: 40px;
+        background-position: center;
+        color: #3b3b3b;
+        width: 30px;
+        height: 30px;
+        background-color: #F4E5E0;
+        border: none;
+        cursor: pointer;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .show {
+        display: block;
+        position: absolute;
+        top: 40px;
+        left: calc(100% - 115px);
+        list-style: none;
+        background-color: #F4E5E0;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), inset 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 0 0 0 15px;
+        padding: 0;
+    }
+
+    .show li {
+        width: 160px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3px;
+    }
+
+    .show a, form {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #logout-btn {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #F4E5E0;
+    }
+
+    .icon {
+        width: 32px;
+        height: 32px;
+        margin-left: 5px;
+    }
+
+    .navigation a {
+        display: none;
+    }
+
+    .navigation input {
+        width: 190px;
     }
 }

@@ -3,6 +3,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/home.css">
     <title>Home - Cook Boy</title>
     <style>@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap');</style>
+    <script type="text/javascript" src="public/scripts/toggle-menu.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -14,6 +15,11 @@
             <div class="suggestions">
                 <span>Suggested recipes</span>
                 <div class="carousel">
+                </div>
+                <div class="map">
+                    <button class="active first"></button>
+                    <button class="second"></button>
+                    <button class="third"></button>
                 </div>
             </div>
             <div class="features-container">
@@ -55,4 +61,15 @@
         </div>
         <?php include('modules/footer.php') ?>
     </div>
+
+<template id="feature-template">
+    <li>
+        <div class="feature-header">
+            <img src="" alt="">
+            <span></span>
+        </div>
+        <div class="feature-text">
+        </div>
+    </li>
+</template>
 </body>

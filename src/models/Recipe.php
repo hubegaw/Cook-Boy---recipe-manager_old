@@ -40,7 +40,8 @@ class Recipe {
     }
 
     public function getTime(): string {
-        return $this->time;
+        $new_time = substr($this->time,0,5);
+        return $new_time;
     }
 
     public function setTime($time): void {

@@ -1,4 +1,4 @@
-const form = document.querySelector('form');
+const form = document.querySelector('div[id="sign-up"]');
 const emailInput = form.querySelector('input[name="register-email"]')
 const passwordInput = form.querySelector('input[name="register-password"]')
 const nameInput = form.querySelector('input[name="register-name"]')
@@ -50,14 +50,15 @@ function handleNameValidation() {
     );
 }
 
+
 document.getElementById("to-register").onclick = function () {
-    document.getElementById("log-in").style.display = "none";
-    document.getElementById("sign-up").style.display = "flex";
+    loginPanel.style.display = "none";
+    registerPanel.style.display = "flex";
 }
 
 document.getElementById("to-login").onclick = function () {
-    document.getElementById("log-in").style.display = "flex";
-    document.getElementById("sign-up").style.display = "none";
+    loginPanel.style.display = "flex";
+    registerPanel.style.display = "none";
 }
 
 emailInput.addEventListener('keyup', validateEmail);

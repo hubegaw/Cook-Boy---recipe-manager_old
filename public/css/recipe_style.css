@@ -1,0 +1,93 @@
+@import 'style.css';
+
+.recipe-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+.tags {
+    color: #938C83;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.do-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin-top: 20px;
+}
+
+.do-buttons button {
+    width: 90px;
+    height: 40px;
+    border-radius: 15px;
+    font-family: inherit;
+    border: none;
+    background: #A46F5F;
+    color: #EFEFEF;
+    font-size: 16px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 10px;
+}
+
+#delete {
+    background-color: #CC635D;
+}
+
+#edit, #delete {
+    cursor: pointer;
+}
+
+.recipe-info {
+    margin-bottom: 10px;
+}
+
+.recipe-info span {
+    margin-right: 30px;
+}
+
+.title {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.ingredients {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-grow: 1;
+    padding: 0;
+    margin: 0;
+}
+
+.ingredients > span {
+    color: #3b3b3b;
+    margin-bottom: 5px;
+}
+
+#ingredient-container {
+    color:inherit;
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+#quantity-container {
+    color: #3b3b3b;
+    margin-left: 7px;
+}
+
+.description {
+    width: 70%;
+    color: #3b3b3b;
+    text-align: center;
+    align-self: center;
+    margin-top: 40px;
+}

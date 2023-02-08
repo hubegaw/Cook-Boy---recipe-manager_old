@@ -26,6 +26,17 @@ body {
     justify-content: center;
 }
 
+.logo {
+    position: absolute;
+    left: 51px;
+    top: 10px;
+}
+
+.logo img {
+    width: 46px;
+    height: 65px;
+}
+
 .log-in {
     display: flex;
 }
@@ -42,17 +53,14 @@ body {
     background: #008CDB;
 }
 
-@media screen and (min-width: 1024px) {
-    .logo {
-        position: absolute;
-        left: 51px;
-        top: 10px;
-    }
+.messages {
+    position: fixed;
+    width: 150px;
+    top: 5px;
+    left: calc(100vw/2 - 75px);
+}
 
-    .logo img {
-        width: 46px;
-        height: 65px;
-    }
+@media screen and (min-width: 1024px) {
 
     .app-name {
         align-self: center;
@@ -169,22 +177,11 @@ body {
     }
 
     .no-valid {
-        border: 2px solid red;
+        border: 1px solid #CC635D;
     }
 }
 
-@media screen and (min-width: 480px) and (max-width: 1023px) {
-    .logo {
-        position: absolute;
-        left: 51px;
-        top: 10px;
-        width: 100%;
-    }
-
-    .logo img {
-        width: 128px;
-        height: 170px;
-    }
+@media screen and (min-width: 320px) and (max-width: 1023px) {
 
     .log-in, .sign-up {
         width: 400px;

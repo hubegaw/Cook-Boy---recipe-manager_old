@@ -6,4 +6,5 @@
             <option><?=$measure?></option>
         <?php endforeach;?>
     </select>
+    <div id="delete-ingredient" onclick="return this.parentNode.remove();"> - </div>
 </div>

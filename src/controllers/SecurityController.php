@@ -13,9 +13,6 @@ class SecurityController extends AppController {
         $this->userRepository = new UserRepository();
     }
 
-    /**
-     * @throws Exception
-     */
     public function login()
     {
         if (!$this->isPost()) {
@@ -23,14 +20,13 @@ class SecurityController extends AppController {
         }
 
         $email = $_POST['email-input'];
-        $password = $_POST['password-input'];
+        $password = md5($_POST['password-input']);
 
         try {
             $user = $this->userRepository->getUser($email, $password);
         } catch (Exception $error) {
             return $this->render('login', ["messages" => [$error->getMessage()]]);
         }
-
 
         if ($password != $user->getPassword()) {
             return $this->render('login', ['messages' => ['Wrong password!']]);
@@ -54,21 +50,17 @@ class SecurityController extends AppController {
             return $this->render('login', ['messages' => ['Please, fill all inputs!']]);
         }
 
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        if (password_needs_rehash($hashedPassword, PASSWORD_BCRYPT))
-            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
-        $user = new User($email, $hashedPassword, $name);
+        $user = new User($email, md5($password), $name);
 
         $this->userRepository->addUser($user);
 
-        $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/login");
+        return $this->render('login', ['messages' => ['Please, now log in!']]);
     }
 
     public function logout()
     {
         session_destroy();
-        return $this->render('login', ['messages' => ['Logged out successfully!']]);
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/login");
     }
 }

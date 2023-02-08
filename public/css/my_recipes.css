@@ -1,73 +1,147 @@
 @import './style.css';
-@media screen and (min-width: 1024px) {
-    .panel {
-        width: 90%;
-        height: 50px;
-        margin-top: 30px;
-        align-items: center;
-    }
 
-    .recipes-count {
-        padding-right: 15px;
+.panel {
+    width: 90%;
+    font-size: 0.95em;
+    height: 50px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.recipes-count {
+    padding-right: 15px;
+    width: 146px;
+}
+
+.create-recipe {
+    margin-left: 150px;
+    font-weight: 500;
+    width: 146px;
+}
+
+.recipes-container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.recipe-tile {
+    width: 236px;
+    height: 298px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #9BB0A5;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    color: #EFEFEF;
+}
+
+.recipe-image {
+    width: 100%;
+    height: 50%;
+    background: #EFEFEF;
+    box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.recipe-image img {
+    width: 128px;
+    height: 128px;
+}
+
+.name {
+    width: 90%;
+    height: 30%;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.info {
+    width: 90%;
+    height: 20%;
+}
+
+button {
+    border: none;
+    background: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+#filters {
+    margin-left: auto;
+    text-decoration: underline;
+}
+
+#filters-container {
+    font-size: 0.9em;
+    width: 90%;
+    height: 50px;
+    background-color: #F4E5E0;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.upper-row {
+    width: 55%;
+    padding-left: 10px;
+}
+
+.lower-row {
+    width: 45%;
+    padding: 0 10px 0 calc(35%/4);
+}
+
+.upper-row, .lower-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#filters-container input {
+    background: #EFEFEF;
+    border-radius: 15px;
+    text-align: center;
+    width: 100px;
+}
+
+@media screen and (max-width: 836px) {
+    .recipes-container {
+        justify-content: center;
     }
 
     .create-recipe {
-        margin-left: 150px;
-        font-weight: 500;
+        margin-left: 0;
     }
 
-    .filters {
-        margin-left: auto;
+    .panel {
+        justify-content: space-between;
     }
 
-    .recipes-container {
-        width: 90%;
-        display: flex;
-
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .recipe-tile {
-        width: 236px;
-        height: 298px;
-        display: flex;
+    #filters-container {
         flex-direction: column;
-        align-items: center;
-        background: #9BB0A5;
-        margin-right: 15px;
-        margin-bottom: 15px;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 15px;
-        color: #EFEFEF;
+        justify-content: flex-start;
+        height: 80px;
     }
 
-    .recipe-image {
+    .upper-row, .lower-row {
+        height: 100%;
         width: 100%;
-        height: 50%;
-        background: #EFEFEF;
-        box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 15px 15px 0 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 5px;
-    }
-
-    .recipe-image img {
-        width: 128px;
-        height: 128px;
-    }
-
-    .name {
-        width: 90%;
-        height: 30%;
-        justify-content: center;
-        font-size: 1.2rem;
-    }
-
-    .info {
-        width: 90%;
-        height: 20%;
+        justify-content: space-evenly;
     }
 }
