@@ -27,4 +27,9 @@ class DefaultController extends AppController {
     {
         $this->render('categories');
     }
+
+    public function settings()
+    {
+        $this->render('settings');
+    }
 }
