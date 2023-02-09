@@ -1,5 +1,5 @@
 
-![Logo]("ReadMeLogo.jpg")
+![Alt Text](https://github.com/hubegaw/Cook-Boy---recipe-manager/blob/main/ReadMeLogo.jpg)
 
 
 # Cook Boy - recipe manager
