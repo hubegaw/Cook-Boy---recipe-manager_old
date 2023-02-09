@@ -31,7 +31,9 @@ The goal of the project is to make everybody's live easier by organizing recipes
 
 ## Demo
 
-Insert gif or link to demo
+![](https://github.com/hubegaw/Cook-Boy---recipe-manager/blob/main/demo-desktop.gif)
+
+![](https://github.com/hubegaw/Cook-Boy---recipe-manager/blob/main/demo-mobile.gif)
 
 
 ## Run Locally
