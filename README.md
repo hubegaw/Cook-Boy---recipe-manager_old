@@ -54,3 +54,9 @@ Start the server
   docker-compose up
 ```
 
+Go to your browser and type
+
+```bash
+  localhost:8080/
+```
+
