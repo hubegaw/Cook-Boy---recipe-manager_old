@@ -43,7 +43,7 @@ Open terminal in your IDE
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/hubegaw/Cook-Boy---recipe-manager.git
 ```
 
 Start the server
